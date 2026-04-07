@@ -52,6 +52,7 @@
       text-transform: uppercase;
       color: #7a8aaa;
       margin-bottom: 24px;
+      position: relative;
     }
     .cover h1 {
       font-family: 'Cinzel', serif;
@@ -62,6 +63,7 @@
       max-width: 800px;
       text-shadow: 0 0 40px rgba(100,140,255,0.4);
       margin-bottom: 16px;
+      position: relative;
     }
     .cover-sub {
       font-size: 14px;
@@ -69,6 +71,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 50px;
+      position: relative;
     }
     .films-row {
       display: flex;
@@ -76,6 +79,7 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 10px;
+      position: relative;
     }
     .film-badge {
       padding: 10px 22px;
@@ -85,7 +89,7 @@
       letter-spacing: 1px;
       border: 1px solid;
     }
-    .badge-titan  { border-color: #1a6fff; color: #4d9fff; background: rgba(26,111,255,0.08); }
+    .badge-titan    { border-color: #1a6fff; color: #4d9fff; background: rgba(26,111,255,0.08); }
     .badge-treasure { border-color: #c8860a; color: #f0a830; background: rgba(200,134,10,0.08); }
     .badge-atlantis { border-color: #009e7f; color: #00d4aa; background: rgba(0,158,127,0.08); }
 
@@ -97,9 +101,8 @@
     }
 
     /* ── FILM SECTION ── */
-    .film-section {
-      margin-bottom: 90px;
-    }
+    .film-section { margin-bottom: 90px; }
+
     .film-header {
       display: flex;
       align-items: center;
@@ -115,7 +118,9 @@
       opacity: 0.12;
       line-height: 1;
       user-select: none;
+      flex-shrink: 0;
     }
+    .film-title-block { flex: 1; }
     .film-title-block h2 {
       font-family: 'Cinzel', serif;
       font-size: clamp(22px, 3vw, 32px);
@@ -129,25 +134,38 @@
       text-transform: uppercase;
       margin-top: 5px;
     }
+    .poster-img {
+      height: 130px;
+      width: auto;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
 
     /* Per-film accent colours */
     .titan  .film-number,
     .titan  .film-title-block h2 { color: #4d9fff; }
-    .titan  .film-year           { color: #4d9fff; }
-    .titan  h3::before           { background: #1a6fff; }
-    .titan  .tag                 { background: rgba(26,111,255,0.15); border-color: rgba(26,111,255,0.3); color: #4d9fff; }
+    .titan  .film-year            { color: #4d9fff; }
+    .titan  h3::before            { background: #1a6fff; }
+    .titan  .tag                  { background: rgba(26,111,255,0.15); border-color: rgba(26,111,255,0.3); color: #4d9fff; }
+    .titan  .callout              { border-color: #1a6fff; }
 
     .treasure  .film-number,
     .treasure  .film-title-block h2 { color: #f0a830; }
-    .treasure  .film-year           { color: #f0a830; }
-    .treasure  h3::before           { background: #c8860a; }
-    .treasure  .tag                 { background: rgba(200,134,10,0.15); border-color: rgba(200,134,10,0.3); color: #f0a830; }
+    .treasure  .film-year            { color: #f0a830; }
+    .treasure  h3::before            { background: #c8860a; }
+    .treasure  .tag                  { background: rgba(200,134,10,0.15); border-color: rgba(200,134,10,0.3); color: #f0a830; }
+    .treasure  .callout              { border-color: #c8860a; }
 
     .atlantis  .film-number,
     .atlantis  .film-title-block h2 { color: #00d4aa; }
-    .atlantis  .film-year           { color: #00d4aa; }
-    .atlantis  h3::before           { background: #009e7f; }
-    .atlantis  .tag                 { background: rgba(0,158,127,0.15); border-color: rgba(0,158,127,0.3); color: #00d4aa; }
+    .atlantis  .film-year            { color: #00d4aa; }
+    .atlantis  h3::before            { background: #009e7f; }
+    .atlantis  .tag                  { background: rgba(0,158,127,0.15); border-color: rgba(0,158,127,0.3); color: #00d4aa; }
+    .atlantis  .callout              { border-color: #009e7f; }
 
     /* ── HERO IMAGE ── */
     .hero-img {
@@ -163,11 +181,11 @@
     /* ── SUB-SECTIONS ── */
     h3 {
       font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #9aaac8;
+      letter-spacing: 2.5px;
+      color: #c8d4ee;
       margin: 36px 0 14px;
       display: flex;
       align-items: center;
@@ -182,10 +200,7 @@
       flex-shrink: 0;
     }
 
-    p {
-      margin-bottom: 12px;
-      color: #b8c2d8;
-    }
+    p { margin-bottom: 12px; color: #b8c2d8; }
 
     ul {
       list-style: none;
@@ -212,9 +227,7 @@
       gap: 12px;
       margin: 20px 0;
     }
-    .img-row.triple {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    .img-row.triple { grid-template-columns: 1fr 1fr 1fr; }
     .img-wrap {
       position: relative;
       overflow: hidden;
@@ -260,9 +273,6 @@
       font-size: 14.5px;
       color: #c0cce0;
     }
-    .titan   .callout { border-color: #1a6fff; }
-    .treasure .callout { border-color: #c8860a; }
-    .atlantis .callout { border-color: #009e7f; }
 
     /* ── DIVIDER ── */
     .divider {
@@ -294,6 +304,7 @@
     @media (max-width: 600px) {
       .img-row, .img-row.triple { grid-template-columns: 1fr; }
       .films-row { flex-direction: column; align-items: center; }
+      .poster-img { height: 90px; }
     }
   </style>
 </head>
@@ -328,103 +339,95 @@
         <h2>Titan A.E.</h2>
         <p class="film-year">2000 &nbsp;·&nbsp; Don Bluth &amp; Gary Goldman &nbsp;·&nbsp; 20th Century Fox</p>
       </div>
+      <img class="poster-img" src="https://upload.wikimedia.org/wikipedia/en/7/75/Titan_AE_One_Sheet.jpg" alt="Titan A.E. Poster" />
     </div>
 
-    <img
-      class="hero-img"
+    <img class="hero-img"
       src="https://image.tmdb.org/t/p/w1280/i6jiRmxfufUQnKYUaurZkqLJ1gU.jpg"
-      alt="Titan A.E. — opening scene"
-    />
+      alt="Titan A.E. — scene" />
 
     <h3>1. World Overview</h3>
     <ul>
-      <li><strong>Time Period:</strong> The year 3028 A.D. — over a thousand years in the future.</li>
-      <li><strong>Setting:</strong> Deep space. Earth has been completely destroyed, and humanity now drifts across the galaxy as a species without a home.</li>
-      <li><strong>Core Concept:</strong> Survival, identity, and rebuilding. The story is built on the idea — what happens to a people when they lose everything, including their planet?</li>
-      <li><strong>Theme:</strong> Hope in the face of extinction. The world is harsh and indifferent, but the story argues that humanity's greatest strength is refusing to give up.</li>
+      <li><strong>Time Period & Setting:</strong> The movie is set in the year 3028. Earth has already been destroyed before the story even begins — blown up by a powerful alien race called the Drej.</li>
+      <li><strong>What the World is About:</strong> Humanity is now homeless. Humans are scattered all over the galaxy, living on rundown space stations and working low jobs just to survive. The whole world is built around that feeling of loss.</li>
+      <li><strong>Central Theme:</strong> Can a species rebuild itself after losing everything? That's really what the story and the world are both trying to answer.</li>
     </ul>
 
     <div class="callout">
-      Imagine waking up one day and every human city, every ocean, every memory of home — gone in an instant. That is the world Titan A.E. opens with.
+      The opening scene hits you immediately — Earth just gets wiped out. No buildup, no warning. That sets the tone for the entire world you're about to explore.
     </div>
 
     <h3>2. Environmental Design</h3>
 
     <div class="img-row">
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/yep5VeMgqMloIKahpFUcSv4snNk.jpg" alt="Space station environment" />
-        <span class="img-caption">Tau-14 Salvage Station — humanity's cramped refuge</span>
+        <img src="https://image.tmdb.org/t/p/w1280/yep5VeMgqMloIKahpFUcSv4snNk.jpg" alt="Space station" />
+        <span class="img-caption">Tau-14 Salvage Station — where humans scrape by</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/hlmWf1CucD3ntfWq3sU0qX9gaMw.jpg" alt="Alien world environment" />
-        <span class="img-caption">Planet Sesharrim — bioluminescent alien forest</span>
+        <img src="https://image.tmdb.org/t/p/w1280/hlmWf1CucD3ntfWq3sU0qX9gaMw.jpg" alt="Alien world" />
+        <span class="img-caption">Alien world — colorful and alive, unlike human spaces</span>
       </div>
     </div>
 
     <ul>
-      <li><strong>Tau-14 Salvage Station:</strong> A dirty, overcrowded space station where humans scrape by doing low-level work. The design is all rusted metal, poor lighting, and tight corridors — it feels like a slum floating in space.</li>
-      <li><strong>Planet Sesharrim:</strong> A glowing forest world lit up by bioluminescent plants and creatures. Feels alive and magical — a sharp contrast to the grimy human stations.</li>
-      <li><strong>Ice Rings of Tigrin:</strong> A crystal maze of giant floating ice formations. Cold, silent, and deadly. Used as a hide-and-seek battlefield in one of the film's most visually striking sequences.</li>
-      <li><strong>Color & Mood:</strong> Human spaces are dark and desaturated — greys, browns, dim blues. Alien worlds are vivid and full of color, showing that the rest of the universe thrives while humans barely survive.</li>
-      <li><strong>Scale:</strong> The environments are enormous. Tiny ships drift through massive nebulae and asteroid fields to remind the viewer how small and vulnerable humanity has become.</li>
+      <li><strong>Human Stations:</strong> These places look terrible on purpose — dark, cramped, rusty metal everywhere. You can tell immediately that humans are at the bottom of this universe's social ladder.</li>
+      <li><strong>Alien Worlds:</strong> Every alien planet feels completely different and full of life. One has glowing forests, another has massive ice crystal formations floating in space. The contrast with the human areas is very deliberate.</li>
+      <li><strong>Colors Tell the Story:</strong> Human areas are grey and dim. Alien worlds are bright and vibrant. It's a visual way of showing how low humanity has fallen compared to everyone else.</li>
+      <li><strong>Scale:</strong> The movie constantly reminds you how small humans are — tiny ships drifting through enormous nebulae, dwarfed by everything around them.</li>
     </ul>
 
     <div class="img-row">
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/pniACHS8KDVCldB3BlwL78RIZ7V.jpg" alt="Ice rings of Tigrin" />
-        <span class="img-caption">Ice Rings of Tigrin — crystal mazes in deep space</span>
+        <img src="https://image.tmdb.org/t/p/w1280/pniACHS8KDVCldB3BlwL78RIZ7V.jpg" alt="Ice rings" />
+        <span class="img-caption">Ice Rings of Tigrin — one of the best-looking sequences in the movie</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/lxUdD7cnIDSOtc5UsCQeFBuz2Du.jpg" alt="The Titan ship" />
-        <span class="img-caption">The Titan — a ship capable of creating a new planet</span>
+        <img src="https://image.tmdb.org/t/p/w1280/lxUdD7cnIDSOtc5UsCQeFBuz2Du.jpg" alt="The Titan" />
+        <span class="img-caption">The Titan — the ship that can create a whole new planet</span>
       </div>
     </div>
 
     <h3>3. World Rules &amp; Logic</h3>
     <ul>
-      <li>Space travel, weapons, and ships all behave in ways that feel real and grounded — no magic, just advanced science.</li>
-      <li><strong>The Drej</strong> are made entirely of pure energy, which means they cannot be fought the same way as physical enemies. This is a rule that holds throughout the film.</li>
-      <li><strong>The Titan ship</strong> can create a new planet, but only from a specific star using a specific energy source. It cannot be triggered just anywhere — the limitation keeps the plot meaningful.</li>
-      <li>The world stays internally consistent — technology and physics never change the rules just to make a scene work.</li>
+      <li>The world sticks to proper science fiction rules. Ships, weapons, and travel all work the way you'd expect in a space setting — nothing feels random.</li>
+      <li>The Drej are made purely of energy, which means you can't just shoot them with regular weapons. The movie actually sticks to this rule throughout instead of ignoring it when it's inconvenient.</li>
+      <li>The Titan ship can create a new planet, but only under very specific conditions. It can't just do it anywhere — that limitation is what makes the finale feel earned rather than cheap.</li>
     </ul>
 
     <h3>4. Culture &amp; Inhabitants</h3>
     <div class="tags">
       <span class="tag">Humans (Diaspora)</span>
-      <span class="tag">The Drej (Energy Beings)</span>
+      <span class="tag">The Drej</span>
       <span class="tag">Akrennians</span>
       <span class="tag">Gaoul</span>
     </div>
     <ul>
-      <li>Humans have no home, no political power, and no respect from other species. They are at the very bottom of the social ladder in this universe.</li>
-      <li>The <strong>Drej</strong> are a hive-minded alien race that operates as one collective intelligence. They destroy anything they perceive as a threat.</li>
-      <li>The <strong>Gaoul</strong> (large bat-like aliens) are navigators and mystics — deeply connected to nature and instinct, forming a stark contrast with the technological Drej.</li>
-      <li>Most alien civilizations in this universe are stable and self-sufficient. The humans are the exception — the outsiders looking in.</li>
+      <li>Humans are treated like second-class citizens everywhere they go. Other species look down on them, give them the worst jobs, and generally don't take them seriously.</li>
+      <li>The Drej work as a hive mind — no individual thoughts, just one collective goal: destroy anything they see as a threat. They're terrifying because they can't be reasoned with.</li>
+      <li>Other alien species in the movie each have their own clear personality and culture — the Gaoul, for example, are wise and nature-connected, which makes them feel like a real society rather than just background characters.</li>
     </ul>
 
     <h3>5. Narrative Integration</h3>
     <ul>
-      <li>The destroyed Earth is not just backstory — it is the emotional wound every scene is trying to heal.</li>
-      <li>The crumbling, cramped human stations visually tell us how far humanity has fallen without a single line of dialogue.</li>
-      <li>The main character, Cale, carries the location of the Titan encoded in his hand — a metaphor for the idea that humanity holds its own future inside itself.</li>
-      <li>Every alien world Cale visits highlights what humans have lost: stability, beauty, community, and a sense of belonging.</li>
+      <li>The destroyed Earth isn't just backstory — it's the reason every single thing in the movie happens. You feel its absence in every scene.</li>
+      <li>The messy, graffiti-covered human ships do a better job of explaining humanity's situation than any line of dialogue could. You understand their life just by looking at the environment.</li>
+      <li>The main character Cale has the location of the Titan encoded in his hand — which is a neat way of saying that humans carry their own solution inside them, they just need to find it.</li>
     </ul>
 
     <h3>6. Unique Design Elements</h3>
     <ul>
-      <li>The Drej — an alien villain made entirely of glowing blue energy — is a genuinely original visual concept that stands out even today.</li>
-      <li>The Ice Ring sequence is considered one of the most visually inventive scenes in animated film history.</li>
-      <li>The ending — where a new planet forms in front of the viewer — is earned because the world's rules were established clearly from the very beginning.</li>
-      <li>The combination of traditional hand-drawn animation and early CGI gives the world a unique texture that blends organic and digital aesthetics.</li>
+      <li>The Drej being made entirely of glowing blue energy is genuinely unlike any alien villain you'd seen in animation at the time. Their ship designs are all sharp angles and crystal shapes — nothing organic or mechanical about them.</li>
+      <li>The ice ring chase sequence is probably the most visually creative thing in the movie. Giant floating crystals used as a hide-and-seek battlefield is a concept that sticks with you.</li>
+      <li>The ending — watching a whole new planet form — lands so well because the movie was honest about how the technology worked from the very beginning.</li>
     </ul>
 
     <h3>7. Game Design Perspective</h3>
     <ul>
-      <li><strong>Best Genre:</strong> Space exploration RPG or action-adventure.</li>
-      <li>Players captain a small ship across the galaxy, visiting alien worlds, forming alliances, and evading the Drej.</li>
-      <li>The Drej's energy-based nature could translate into puzzle-based combat — you cannot shoot them directly, you need to find creative solutions using the environment.</li>
-      <li>A long-term colony-building mechanic could be the emotional core — the player is always working toward recreating a home for humanity.</li>
-      <li>The social status system (humans as outsiders) could drive dialogue trees and faction relationships, where earning respect from alien civilizations unlocks new areas and technology.</li>
+      <li><strong>Best Fit:</strong> A space exploration RPG or action-adventure game would work really well with this world.</li>
+      <li>You'd play as a human pilot navigating the galaxy, visiting alien worlds, forming alliances, and trying to avoid the Drej — who can't be fought head-on, so you'd need creative solutions instead.</li>
+      <li>The social system (humans being outsiders) could drive the entire progression — earning respect from alien civilizations unlocks new areas, technology, and story paths.</li>
+      <li>A long-term goal of rebuilding a home for humanity would give the game real emotional weight and direction throughout.</li>
     </ul>
   </section>
 
@@ -440,24 +443,22 @@
         <h2>Treasure Planet</h2>
         <p class="film-year">2002 &nbsp;·&nbsp; Ron Clements &amp; John Musker &nbsp;·&nbsp; Walt Disney Feature Animation</p>
       </div>
+      <img class="poster-img" src="https://upload.wikimedia.org/wikipedia/en/7/7e/Treasure_Planet_poster.jpg" alt="Treasure Planet Poster" />
     </div>
 
-    <img
-      class="hero-img"
+    <img class="hero-img"
       src="https://image.tmdb.org/t/p/w1280/f2opsSUSiMdEp6AiY2sbC8QPd8S.jpg"
-      alt="Treasure Planet — opening world"
-    />
+      alt="Treasure Planet — scene" />
 
     <h3>1. World Overview</h3>
     <ul>
-      <li><strong>Setting:</strong> A retro-futuristic universe where the Age of Sail and space travel exist at the same time. Ships with wooden hulls and canvas sails travel between star systems.</li>
-      <li><strong>Core Concept:</strong> Adventure and belonging. A reckless teenager with no direction discovers purpose, danger, and a complicated father figure on a voyage across the cosmos.</li>
-      <li><strong>Theme:</strong> The world is built on the romance of exploration — the idea that the universe is an open ocean waiting to be sailed, full of risk and wonder in equal measure.</li>
-      <li><strong>Inspiration:</strong> Robert Louis Stevenson's classic novel Treasure Island, reimagined in space.</li>
+      <li><strong>Time Period & Setting:</strong> This movie takes the classic Treasure Island story and moves it to space. The twist is that the world still looks like the Age of Sail — wooden ships, rope rigging, old-fashioned clothes — but everything happens in outer space.</li>
+      <li><strong>Core Idea:</strong> A rebellious teenager named Jim Hawkins joins a space voyage looking for the legendary Treasure Planet, and ends up discovering more about himself than the treasure.</li>
+      <li><strong>Feel of the World:</strong> It feels like the golden age of pirates and exploration never ended — it just moved to the stars. That one idea shapes everything about how this world looks and functions.</li>
     </ul>
 
     <div class="callout">
-      This world answers a simple question: what if the golden age of pirates and sailing ships never ended — it just moved to the stars?
+      The first time you see a wooden sailing ship fly through a purple nebula, it just works. You buy it completely. That's how well the world commits to its own idea.
     </div>
 
     <h3>2. Environmental Design</h3>
@@ -465,80 +466,75 @@
     <div class="img-row">
       <div class="img-wrap">
         <img src="https://image.tmdb.org/t/p/w1280/30XLt1HzwOsdciWVaYVxlJq3cjH.jpg" alt="Spaceport" />
-        <span class="img-caption">The Spaceport — a bustling interstellar hub</span>
+        <span class="img-caption">The Spaceport — busy, diverse, full of life</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/ru968wwuVD45oYfBQNuFC7at361.jpg" alt="RLS Legacy sailing through space" />
-        <span class="img-caption">RLS Legacy — wooden galleon sailing through a nebula</span>
+        <img src="https://image.tmdb.org/t/p/w1280/ru968wwuVD45oYfBQNuFC7at361.jpg" alt="RLS Legacy in space" />
+        <span class="img-caption">RLS Legacy — a wooden galleon sailing through space</span>
       </div>
     </div>
 
     <ul>
-      <li><strong>The Benbow Inn:</strong> Jim's home — warm, cozy, and grounded. It serves as an emotional anchor before the adventure pulls him away.</li>
-      <li><strong>The Spaceport:</strong> Massive, busy, filled with dozens of alien species and ships. It establishes the scale and diversity of this civilization instantly.</li>
-      <li><strong>The RLS Legacy (the ship):</strong> A wooden-hulled sailing galleon fitted with solar sails that power it through space. This is the primary world — Jim lives on it for most of the film.</li>
-      <li><strong>Treasure Planet:</strong> A mechanical planet — an ancient machine built to collect and store treasure, rigged with deadly traps. Its surface is crumbling gold and ancient machinery.</li>
-      <li><strong>Color Shifts:</strong> Warm amber and orange at the Benbow Inn. Deep purples and cosmic blues in open space. Molten gold and fire on Treasure Planet. Each location has its own palette that signals tone.</li>
-      <li><strong>Scale:</strong> The film uses scale masterfully — the tiny Legacy drifting past enormous glowing nebulae creates constant visual wonder.</li>
+      <li><strong>Benbow Inn:</strong> Where the story starts — warm, cozy, familiar. It's designed to feel safe so that leaving it feels like a real departure into the unknown.</li>
+      <li><strong>The Spaceport:</strong> The first look at the wider world. Dozens of alien species, huge ships, and a civilization that clearly stretches far beyond what we see. It makes the world feel massive instantly.</li>
+      <li><strong>The RLS Legacy (the Ship):</strong> This is where most of the movie takes place. It's a proper sailing ship — wooden hull, canvas sails — but it flies through space using solar wind. The crew lives, works, and fights on its deck just like an old pirate ship.</li>
+      <li><strong>Treasure Planet:</strong> An ancient mechanical planet built to store treasure, rigged with traps. Its surface is crumbling gold machinery. The idea that the treasure itself is a trap is a great subversion.</li>
+      <li><strong>Color Changes:</strong> Each location has its own color palette. The inn is warm orange and amber. Space is deep purple and blue. Treasure Planet is burning gold. The movie uses color to signal tone at every stage.</li>
     </ul>
 
     <div class="img-row">
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/gmb1HHHJunFdGyJq7MTsYr8h0j0.jpg" alt="Deep space nebula" />
-        <span class="img-caption">Open space — vast nebulae dwarf the ship</span>
+        <img src="https://image.tmdb.org/t/p/w1280/gmb1HHHJunFdGyJq7MTsYr8h0j0.jpg" alt="Space nebula" />
+        <span class="img-caption">Deep space — the ship is tiny compared to what surrounds it</span>
       </div>
       <div class="img-wrap">
         <img src="https://image.tmdb.org/t/p/w1280/mVuH9hNGnxF9bbhlh1Tr9FuG3Uc.jpg" alt="Treasure Planet surface" />
-        <span class="img-caption">Treasure Planet — an ancient mechanical world of gold and traps</span>
+        <span class="img-caption">Treasure Planet — gold, ancient machinery, and deadly traps</span>
       </div>
     </div>
 
     <h3>3. World Rules &amp; Logic</h3>
     <ul>
-      <li>The single boldest rule: sailing ships work in space. The film commits to this fully and never breaks it, so the viewer accepts it without question.</li>
-      <li>A thin atmospheric field surrounds ships, allowing characters to breathe and move on deck. This is shown early and never contradicted.</li>
-      <li>Technology is hybrid — holographic star maps and digital navigation exist alongside ropes, sails, and hand tools.</li>
-      <li>Cyborg technology is natural and common. Long John Silver's mechanical arm can transform into various tools, a blaster, and even a shield.</li>
-      <li>The Portal on Treasure Planet runs on mechanical logic — it is powered by the gold of the treasure itself, which fits the world's steampunk-era rules perfectly.</li>
+      <li>The biggest rule is that sailing ships work in space. The movie never questions this or explains it away — it just fully commits to it, and because of that, you accept it without thinking twice.</li>
+      <li>There's a thin atmosphere around each ship that lets people breathe and move on deck. This is shown early and never forgotten later when it would be convenient to ignore it.</li>
+      <li>Technology is a mix of old and new. Star maps are holographic, but navigation is still done by hand. Cyborg parts exist and are totally normal — Long John Silver has a mechanical arm that can turn into almost anything.</li>
+      <li>The Portal on Treasure Planet runs on the gold of the treasure itself as fuel — which fits perfectly with the world's steampunk logic.</li>
     </ul>
 
     <h3>4. Culture &amp; Inhabitants</h3>
     <div class="tags">
       <span class="tag">Humans</span>
-      <span class="tag">Multi-species Crew</span>
+      <span class="tag">Multi-Species Crew</span>
       <span class="tag">Space Pirates</span>
       <span class="tag">Cyborgs</span>
     </div>
     <ul>
-      <li>The crew of the Legacy is a mix of alien species, each with different physiology and behavior — much like the multicultural crews of real historical tall ships.</li>
-      <li>Society follows a maritime hierarchy: captain, first mate, cook, and crew. It is a structure everyone understands, made strange by the alien members following it.</li>
-      <li>Pirates in this world are morally complex. Long John Silver is not simply a villain — he has a genuine code of loyalty and genuine affection for Jim, which makes his betrayal more painful.</li>
-      <li>The broader civilization (glimpsed at the spaceport) feels like a prosperous interstellar empire — cosmopolitan, layered, and barely explored, hinting at a much larger world beyond the story.</li>
+      <li>The crew of the Legacy is a mix of all kinds of alien species, which mirrors how real tall-ship crews were made up of people from many different backgrounds.</li>
+      <li>The social structure is a classic maritime hierarchy — captain, first mate, cook, crew — and every species follows it, which makes the alien world feel grounded and believable.</li>
+      <li>Long John Silver is one of the more interesting characters because he's not a straight-up villain. He has a genuine code and a real bond with Jim, which makes the whole story more complicated than just good vs. evil.</li>
     </ul>
 
     <h3>5. Narrative Integration</h3>
     <ul>
-      <li>The open cosmos mirrors Jim's own restlessness — he needs space (literally) to find himself.</li>
-      <li>Silver's cyborg body — half-flesh, half-machine — is a constant visual metaphor for the dual nature of every character: loyalty vs. self-interest, warmth vs. ruthlessness.</li>
-      <li>The treasure being destroyed while Jim saves Silver instead is the world forcing a character-defining choice. The environment becomes the moral test.</li>
-      <li>B.E.N., the abandoned robot caretaker, hints at a dark history — someone built this mechanical planet, programmed a servant to guard it, and then vanished. The world is full of untold stories.</li>
+      <li>The wide-open space mirrors Jim's feeling of being trapped and wanting to escape. The world itself reflects where his head is at throughout the story.</li>
+      <li>Silver's cyborg body — half flesh, half machine — visually represents the dual nature of almost every character in the movie. Everyone is torn between two things.</li>
+      <li>There's a robot caretaker called B.E.N. who was left behind on Treasure Planet with his memory wiped. He hints at a much bigger history — someone built this whole mechanical planet, left a servant to guard it, and just disappeared. That's the kind of detail that makes a world feel real.</li>
     </ul>
 
     <h3>6. Unique Design Elements</h3>
     <ul>
-      <li>The fusion of Age of Sail aesthetics with space travel is the defining achievement of this world. No other film has done it this fully or this convincingly.</li>
-      <li>Long John Silver's shapeshifting mechanical arm — capable of becoming a cooking utensil, a weapon, or a tool — is one of the most creative character design choices in Disney animation.</li>
-      <li>The mechanical planet as a villain's lair is a brilliant subversion: the treasure you spent the whole film chasing turns out to be the thing that tries to kill you.</li>
-      <li>The film was made with a $140 million budget and blended hand-drawn and CG animation so seamlessly that most viewers cannot tell where one ends and the other begins.</li>
+      <li>No other movie has done the sailing-ship-in-space concept this fully or this well. It's a completely original visual idea that holds up the entire movie.</li>
+      <li>Silver's arm — which transforms from a cooking ladle to a cannon to a grappling hook — is one of the most creative character design choices in any Disney movie.</li>
+      <li>The movie had a $140 million budget and blended hand-drawn and CGI animation so smoothly that most viewers can't tell where one ends and the other begins.</li>
     </ul>
 
     <h3>7. Game Design Perspective</h3>
     <ul>
-      <li><strong>Best Genre:</strong> Open-world naval action-adventure — think Sea of Thieves but in space with sail-powered galleons.</li>
-      <li>Players captain their own solar galleon, recruit alien crew members with different special abilities, and navigate procedurally generated star systems hunting for treasure maps.</li>
-      <li>Ship-to-ship combat using solar cannons, boarding actions, and crew management would form the core loop.</li>
-      <li>A pirate vs. lawful reputation system could gate missions, ports, and relationships with different factions.</li>
-      <li>The retro-futuristic visual identity would give the game a completely distinct look that sits apart from both pirate games and conventional sci-fi titles.</li>
+      <li><strong>Best Fit:</strong> An open-world pirate adventure game — basically Sea of Thieves but in space with solar galleons instead of regular ships.</li>
+      <li>Players would captain their own ship, hire alien crew members with different abilities, and travel through star systems hunting treasure maps.</li>
+      <li>Ship combat using solar cannons, boarding enemy ships, and managing your crew would form the main gameplay loop.</li>
+      <li>A reputation system — are you a pirate or do you follow the law — would decide which ports let you in, what missions you get, and who trusts you.</li>
+      <li>The retro-futuristic look would make the game stand out visually from every other space or pirate game on the market.</li>
     </ul>
   </section>
 
@@ -554,107 +550,103 @@
         <h2>Atlantis: The Lost Empire</h2>
         <p class="film-year">2001 &nbsp;·&nbsp; Gary Trousdale &amp; Kirk Wise &nbsp;·&nbsp; Walt Disney Feature Animation</p>
       </div>
+      <img class="poster-img" src="https://upload.wikimedia.org/wikipedia/en/d/de/Atlantis_The_Lost_Empire_poster.jpg" alt="Atlantis Poster" />
     </div>
 
-    <img
-      class="hero-img"
+    <img class="hero-img"
       src="https://image.tmdb.org/t/p/w1280/4eTiLRTYwAVQyQAjuFuf3BXAony.jpg"
-      alt="Atlantis: The Lost Empire — 1914 opening"
-    />
+      alt="Atlantis — scene" />
 
     <h3>1. World Overview</h3>
     <ul>
-      <li><strong>Time Period:</strong> 1914 — the Edwardian era, right on the edge of World War I. A time of scientific ambition and empire.</li>
-      <li><strong>Setting:</strong> Starts in Washington D.C. before descending thousands of feet underground into a vast volcanic cavern where the ancient city of Atlantis has survived in isolation for millennia.</li>
-      <li><strong>Core Concept:</strong> Discovery and preservation. The world asks — when a powerful civilization stumbles upon a hidden one, does it have the right to take what it finds?</li>
-      <li><strong>Theme:</strong> History, loss, and responsibility. Atlantis is a civilization that has forgotten its own greatness — and outsiders must choose between exploiting it or protecting it.</li>
+      <li><strong>Time Period & Setting:</strong> The movie starts in 1914 — the Edwardian era — in Washington D.C., and then takes you thousands of feet underground into a hidden volcanic cavern where the ancient city of Atlantis has been living in isolation for thousands of years.</li>
+      <li><strong>Core Idea:</strong> A young linguist named Milo Thatch joins a secret expedition to find Atlantis. What they find is a real, living civilization — not just ruins. And then the expedition has to decide what to do about that.</li>
+      <li><strong>What the World Asks:</strong> When you discover something ancient and powerful, do you have the right to take it? That moral question is baked into the world itself.</li>
     </ul>
 
     <div class="callout">
-      Atlantis is a civilization frozen in time — thousands of years old, surviving underground, their technology still functioning but their people no longer understanding how it works.
+      The moment the team first sees Atlantis — this enormous glowing city carved into a cavern wall — is genuinely breathtaking. The scale of it hits you all at once.
     </div>
 
     <h3>2. Environmental Design</h3>
 
     <div class="img-row">
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/fYr0fqT9NImOuaN1QgnDHgGh4Ci.jpg" alt="Underground cavern journey" />
-        <span class="img-caption">Underground tunnels — the dangerous path to Atlantis</span>
+        <img src="https://image.tmdb.org/t/p/w1280/fYr0fqT9NImOuaN1QgnDHgGh4Ci.jpg" alt="Underground journey" />
+        <span class="img-caption">The path to Atlantis — dangerous and beautiful</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/y7XlMkbp8lV078iuXcnrY6fBjQo.jpg" alt="First view of Atlantis" />
-        <span class="img-caption">First sight of Atlantis — a city carved into a volcanic cavern</span>
+        <img src="https://image.tmdb.org/t/p/w1280/y7XlMkbp8lV078iuXcnrY6fBjQo.jpg" alt="Atlantis city" />
+        <span class="img-caption">First sight of Atlantis — carved into a volcanic cavern</span>
       </div>
     </div>
 
     <ul>
-      <li><strong>Washington D.C. / Smithsonian:</strong> The opening world is grounded in real history — dusty museums, gas lamps, Victorian architecture. It roots the story in the real world before the fantasy begins.</li>
-      <li><strong>The Ulysses Submarine:</strong> A massive steam-powered submarine that bridges the modern world and the ancient. Its design is all dark iron and hissing pipes — industrial and powerful.</li>
-      <li><strong>Underground Tunnels:</strong> The journey to Atlantis passes through tunnels filled with giant stone guardians, deep water, and ancient machinery. Dangerous and beautiful at the same time.</li>
-      <li><strong>The City of Atlantis:</strong> Built into the walls of a massive underground cavern, lit by the warm glow of the Crystal. Its architecture blends Mesoamerican, Ancient Greek, and Art Nouveau influences in a way that feels unlike anything from any single real culture.</li>
-      <li><strong>Color:</strong> The surface world is muted — greys, beiges, institutional colors. Atlantis glows — warm amber, deep teal, magenta crystal light. The shift the moment you enter the city is breathtaking.</li>
-      <li><strong>Scale:</strong> Empty streets and buildings built for tens of thousands of people, now home to a few hundred. The scale communicates a civilization in decline without a word of explanation.</li>
+      <li><strong>Washington D.C. Opening:</strong> The movie starts in a dusty museum, gas-lit corridors, and Victorian-era architecture. It grounds you in the real world before pulling you into the fantasy.</li>
+      <li><strong>The Ulysses Submarine:</strong> This massive steam-powered submarine bridges the two worlds — old industrial technology meeting something ancient. Its dark iron design makes it feel like a weapon pointed at something fragile.</li>
+      <li><strong>The Underground Tunnels:</strong> To get to Atlantis, the team passes through ancient stone corridors full of traps and giant mechanical guardians. It feels like the city is already warning them to turn back.</li>
+      <li><strong>The City of Atlantis:</strong> Built into the walls of a cavern and lit by the warm glow of the crystal, the city's architecture blends ancient Greek, Mesoamerican, and Art Nouveau styles. Nothing about it looks like any single real-world culture — it feels genuinely alien but also ancient.</li>
+      <li><strong>Color Shift:</strong> The surface world is all muted greys and beige tones. The moment you enter Atlantis, everything becomes warm amber, deep teal, and crystal blue. That color shift alone tells you you've entered somewhere special.</li>
+      <li><strong>Scale as Storytelling:</strong> The streets and buildings are built for a city of tens of thousands. Only a few hundred people still live there. That emptiness communicates everything about Atlantis without a single word of explanation.</li>
     </ul>
 
     <div class="img-row triple">
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/pSsxltbhfk5q9Lgo5aJqzSSuANW.jpg" alt="Atlantis city detail" />
-        <span class="img-caption">Atlantis — ancient architecture still standing</span>
+        <img src="https://image.tmdb.org/t/p/w1280/pSsxltbhfk5q9Lgo5aJqzSSuANW.jpg" alt="Atlantis architecture" />
+        <span class="img-caption">Ancient architecture — built for a much larger population</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/aTfIqpRA9raWdUVWAzyTPz2Q3kf.jpg" alt="Crystal energy" />
-        <span class="img-caption">The Heart of Atlantis — crystal that powers everything</span>
+        <img src="https://image.tmdb.org/t/p/w1280/aTfIqpRA9raWdUVWAzyTPz2Q3kf.jpg" alt="The crystal" />
+        <span class="img-caption">The Heart of Atlantis — the crystal that powers everything</span>
       </div>
       <div class="img-wrap">
-        <img src="https://image.tmdb.org/t/p/w1280/oCwFnkRIsgSuNpUGLtLevONled0.jpg" alt="Atlantis culture" />
-        <span class="img-caption">The Atlantean people — ancient, worn, but alive</span>
+        <img src="https://image.tmdb.org/t/p/w1280/oCwFnkRIsgSuNpUGLtLevONled0.jpg" alt="Atlantean people" />
+        <span class="img-caption">The Atlanteans — alive, but slowly forgetting their own history</span>
       </div>
     </div>
 
     <h3>3. World Rules &amp; Logic</h3>
     <ul>
-      <li>Atlantis runs on a crystal-based energy system. The Heart of Atlantis is a central crystal that powers all technology, light, and even the health of the people — they have crystal shards embedded in them that connect to it.</li>
-      <li>The crystal's power is consistent across the film: it heals wounds, powers vehicles and weapons, creates barriers, and bonds with the royal bloodline. It never does something new just to solve a problem.</li>
-      <li>The Atlanteans have lost the knowledge to operate most of their own technology — an ancient society that has regressed. Their machines still work; they just cannot explain why anymore.</li>
-      <li>The Shepherd's Journal (the map that leads to Atlantis) exists plausibly in the world — it was written by an outsider who visited Atlantis long ago, making its existence believable.</li>
+      <li>Atlantis runs on a crystal energy system. The Heart of Atlantis is a large central crystal that powers the city's light, technology, vehicles, and even the health of the people — they each have a small crystal shard that connects them to it.</li>
+      <li>What's interesting is that the crystal's rules never change throughout the movie. It heals, it powers things, it creates barriers — and it always works the same way. The film doesn't suddenly give it new powers just to solve a problem.</li>
+      <li>The Atlanteans have forgotten how most of their technology works. Their machines still function, but nobody can explain why anymore. That's a clever detail — an advanced civilization that has lost the knowledge to understand itself.</li>
     </ul>
 
     <h3>4. Culture &amp; Inhabitants</h3>
     <div class="tags">
-      <span class="tag">Atlanteans (Ancient Civilization)</span>
-      <span class="tag">Surface-World Expedition Team</span>
+      <span class="tag">Atlanteans</span>
+      <span class="tag">Surface-World Expedition</span>
       <span class="tag">Royal Bloodline</span>
     </div>
     <ul>
-      <li>The Atlanteans are a dwindling population living with rituals and traditions they no longer fully understand — performing ceremonies whose original meaning has been forgotten over thousands of years.</li>
-      <li>Their language is the root of all human languages, which is why linguist Milo can communicate with them — a clever and internally consistent piece of world-building.</li>
-      <li>Princess Kida represents a generation caught between ancestral memory and present survival. She is warrior, scholar, and heir all at once.</li>
-      <li>The expedition team from the surface is a collection of specialists — a mechanic, a demolitions expert, a medic, a geologist — who each represent different motivations for why someone explores. Some are curious, some are greedy, and the film does not pretend otherwise.</li>
+      <li>The Atlanteans still perform rituals and ceremonies from thousands of years ago, but most of them have no idea what the original meaning was. It's a small detail that makes the civilization feel genuinely ancient and worn down.</li>
+      <li>Their language is the root of all human languages, which is why Milo (the linguist) can communicate with them. It's a satisfying piece of worldbuilding that actually makes sense.</li>
+      <li>Princess Kida is interesting because she's been alive for thousands of years but still doesn't fully understand her own people's history. She's the bridge between the past and the present.</li>
+      <li>The expedition team from the surface represents different motivations — curiosity, greed, loyalty, duty. The movie doesn't pretend they're all heroes, which makes the conflict more interesting.</li>
     </ul>
 
     <h3>5. Narrative Integration</h3>
     <ul>
-      <li>The city itself is the stakes. Saving Atlantis is not just about one person — it is about preserving an entire civilization's history and memory.</li>
-      <li>The crystal's connection to the people means that environmental damage is personal damage. When the Heart is threatened, the people weaken. The world and its characters are literally linked.</li>
-      <li>The empty, oversized streets and buildings are constant environmental storytelling — they tell the viewer that Atlantis was once vast and is now dying, without ever needing to say it out loud.</li>
-      <li>The villain's motivation (to sell the crystal to the highest bidder) mirrors real-world colonial history — it gives the conflict moral weight beyond standard adventure storytelling.</li>
+      <li>The city itself is what's at stake in the story. It's not just a location — it's a living thing connected to the people. When the crystal is threatened, the Atlanteans weaken. The world and its characters are literally linked.</li>
+      <li>The empty, oversized buildings and streets are doing constant background storytelling — showing you a civilization in slow decline without ever needing to announce it.</li>
+      <li>The villain's plan to sell the crystal on the surface market mirrors real colonial history. It gives the conflict a moral layer that makes the story feel more serious than a typical adventure movie.</li>
     </ul>
 
     <h3>6. Unique Design Elements</h3>
     <ul>
-      <li>The Atlantean script and language system is a fully designed, internally consistent constructed language — remarkable for an animated film.</li>
-      <li>The art direction was developed with comic artist Mike Mignola (creator of Hellboy), giving the film a bold, angular visual language entirely unlike any other Disney film.</li>
-      <li>The Leviathan — a giant mechanical lobster that guards the entrance to Atlantis — is one of the most memorable creature designs in animated cinema. It establishes both the power of ancient Atlantean technology and the danger of what lies ahead.</li>
-      <li>The concept of a lost civilization that has forgotten its own greatness is philosophically rich in a way that separates Atlantis from simple treasure-hunt adventure stories.</li>
+      <li>The Atlantean script and language was fully designed for the movie — it's a working constructed language, not just decorative symbols. That level of detail is rare in animation.</li>
+      <li>The art direction was developed with comic artist Mike Mignola (creator of Hellboy), which gives the movie a bold, angular look that's completely different from any other Disney film before or after.</li>
+      <li>The Leviathan — the giant mechanical lobster that guards the entrance to Atlantis — is one of the most memorable creature designs in any animated movie. It's terrifying, ancient-looking, and mechanical all at once.</li>
+      <li>The concept of a civilization that has forgotten its own greatness is one that stays with you. It's a more thoughtful idea than most adventure movies bother with.</li>
     </ul>
 
     <h3>7. Game Design Perspective</h3>
     <ul>
-      <li><strong>Best Genre:</strong> Action-adventure or metroidvania — a game about exploring a massive ruined city and gradually unlocking its secrets.</li>
-      <li>Players explore Atlantis piece by piece, recovering lost technology that grants new abilities — crystal-powered vehicles, translation mechanics, excavation tools.</li>
-      <li>The crystal energy system becomes a dual-use resource in gameplay: it powers your abilities but also sustains the city. Push too hard and the city suffers.</li>
-      <li>Combat could feature the conflict between the expedition's surface-world weapons and Atlantean ancient technology — the player chooses which tools to use and which side to ally with.</li>
-      <li>A co-op mode is a natural fit given the expedition team structure — each character has a unique skill set that others depend on, encouraging teamwork.</li>
+      <li><strong>Best Fit:</strong> An action-adventure or metroidvania game — exploring a massive ruined city and slowly unlocking its secrets piece by piece.</li>
+      <li>Players would explore Atlantis, recovering lost technology that gives them new abilities — crystal-powered vehicles, translation puzzles, ancient weapon systems.</li>
+      <li>The crystal energy system could be a dual-use resource in gameplay — it powers your abilities but also keeps the city alive. Use too much and the city starts to suffer.</li>
+      <li>The expedition team structure is perfect for co-op play — each character has a unique skill that others depend on, so teamwork would be built into the core design.</li>
+      <li>The surface world's military threat vs. Atlantis's ancient defenses could create two very different combat styles — modern weapons against ancient technology.</li>
     </ul>
   </section>
 
@@ -662,12 +654,10 @@
   <div class="conclusion">
     <h2>Final Thoughts</h2>
     <p>
-      Titan A.E., Treasure Planet, and Atlantis: The Lost Empire each take a completely different approach to world-building.
-      Titan A.E. builds meaning through loss and emptiness — the absent home planet echoes through every scene.
-      Treasure Planet achieves coherence through sheer commitment to its central aesthetic idea.
-      Atlantis earns its emotional weight through cultural detail and moral complexity.
-      In all three cases, the world is not a backdrop — it is an active part of the story.
-      For anyone studying game world design, these films are essential examples of how environments can carry meaning, establish rules, and make players — or viewers — genuinely care about a place.
+      All three of these movies do something that not many animated films try — they build worlds that feel like they exist beyond the edges of the screen.
+      Titan A.E. uses the absence of a home planet to drive everything. Treasure Planet builds its entire identity around one bold visual idea and never breaks it.
+      Atlantis earns its emotional weight through cultural detail and a villain whose motivation actually makes sense.
+      In all three cases, the world isn't just a backdrop — it's an active part of the story, and that's what makes them worth studying.
     </p>
   </div>
 
